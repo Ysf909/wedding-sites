@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elias & Melissa - Wedding Venue</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Youssef & Jana - Wedding Venue</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -67,71 +66,125 @@
             background: rgba(255, 255, 255, 0.2);
             color: white;
             cursor: pointer;
+            font-size: 1rem;
         }
         .lang-switcher button:hover {
             background: rgba(255, 255, 255, 0.4);
         }
+        /* RTL styles for Arabic */
+        body[dir="rtl"] {
+            direction: rtl;
+            text-align: right;
+        }
+        body[dir="rtl"] .lang-switcher {
+            right: auto;
+            left: 20px;
+        }
+        body[dir="rtl"] a {
+            text-decoration: underline;
+        }
     </style>
 </head>
-<body>
+<body dir="ltr">
     <div class="overlay"></div>
 
     <div class="lang-switcher">
-        <button onclick="setLanguage('en')">🇺🇸 English</button>
-        <button onclick="setLanguage('fr')">🇫🇷 Français</button>
-        <button onclick="setLanguage('ar')">🇸🇦 العربية</button>
+        <button onclick="setLanguage('en')" aria-label="Switch to English">🇺🇸 English</button>
+        <button onclick="setLanguage('fr')" aria-label="Switch to French">🇫🇷 Français</button>
+        <button onclick="setLanguage('ar')" aria-label="Switch to Arabic">🇸🇦 العربية</button>
     </div>
 
     <header>
-        <h1><span data-lang="en">Elias & Melissa</span>
-            <span data-lang="fr">Elias & Melissa</span>
-            <span data-lang="ar">إلياس وميليسا</span></h1>
-        <p><span data-lang="en">August 23, 2025 • Lebanon</span>
+        <h1>
+            <span data-lang="en">Youssef & Jana</span>
+            <span data-lang="fr">Youssef & Jana</span>
+            <span data-lang="ar">يوسف وجنى</span>
+        </h1>
+        <p>
+            <span data-lang="en">August 23, 2025 • Lebanon</span>
             <span data-lang="fr">23 août 2025 • Liban</span>
-            <span data-lang="ar">٢٣ آب ٢٠٢٥ • لبنان</span></p>
+            <span data-lang="ar">٢٣ آب ٢٠٢٥ • لبنان</span>
+        </p>
     </header>
 
-    <div class="container">
-        <h2><span data-lang="en">Welcome to Our Wedding Website</span>
-            <span data-lang="fr">Bienvenue sur notre site de mariage</span>
-            <span data-lang="ar">مرحباً بكم في موقع زفافنا</span></h2>
-        <p><span data-lang="en">We are thrilled to celebrate our special day with you at the beautiful Villa Chambour.</span>
-            <span data-lang="fr">Nous sommes ravis de célébrer notre jour spécial avec vous à la magnifique Villa Chambour.</span>
-            <span data-lang="ar">يسعدنا أن نحتفل بيومنا المميز معكم في فيلا شامبور الجميلة.</span></p>
-    </div>
+   <div class="container">
+    <h2>
+        <span data-lang="en">Where Love Is Made</span>
+        <span data-lang="fr">Là où l'amour se crée</span>
+        <span data-lang="ar">حيث يُصنع الحب</span>
+    </h2>
+    <p>
+        <span data-lang="en">We are thrilled to celebrate our special day with you at the beautiful Villa Chambour.</span>
+        <span data-lang="fr">Nous sommes ravis de célébrer notre jour spécial avec vous à la magnifique Villa Chambour.</span>
+        <span data-lang="ar">يسعدنا أن نحتفل بيومنا المميز معكم في فيلا شامبور الجميلة.</span>
+    </p>
+</div>
+
 
     <div class="container" id="countdown-box">
-        <h2><span data-lang="en">Countdown to Our Wedding 💍</span>
+        <h2>
+            <span data-lang="en">Countdown to Our Wedding 💍</span>
             <span data-lang="fr">Compte à rebours avant notre mariage 💍</span>
-            <span data-lang="ar">العد التنازلي لحفل زفافنا 💍</span></h2>
-        <div id="timer" style="font-size: 1.8rem; margin-top: 1rem;">Loading...</div>
+            <span data-lang="ar">العد التنازلي لحفل زفافنا 💍</span>
+        </h2>
+        <div id="timer" style="font-size: 1.8rem; margin-top: 1rem;">
+            ⏰ Loading...
+        </div>
     </div>
 
     <footer>
-        <p>© 2024 Elias & Melissa | Made with Love</p>
-        <p><a href="https://www.google.com/maps?q=9R54+9MR+Villa+Chambour" target="_blank">
-            <span data-lang="en">📍 View Venue At 7 P.M (Location on Google Maps)</span>
-            <span data-lang="fr">📍 Voir le lieu à 19h (Emplacement sur Google Maps)</span>
-            <span data-lang="ar">📍 مشاهدة المكان الساعة ٧ مساءً (الموقع على خرائط جوجل)</span>
-        </a></p>
+        <p>© 2024 Youssef & Jana | Made with Love</p>
+        <p>
+            <a href="https://www.google.com/maps?q=9R54+9MR+Villa+Chambour" target="_blank" rel="noopener noreferrer">
+                <span data-lang="en">📍 View Venue At 7 P.M</span>
+                <span data-lang="fr">📍 Voir le lieu à 19h</span>
+                <span data-lang="ar">📍 مشاهدة المكان الساعة ٧ مساءً</span>
+            </a>
+        </p>
     </footer>
 
     <script>
+        const langUnits = {
+            en: { d: "d", h: "h", m: "m", s: "s" },
+            fr: { d: "j", h: "h", m: "m", s: "s" },
+            ar: { d: "ي", h: "س", m: "د", s: "ث" },
+        };
+
         function setLanguage(lang) {
+            document.documentElement.lang = lang;
+
+            if (lang === "ar") {
+                document.body.setAttribute("dir", "rtl");
+            } else {
+                document.body.setAttribute("dir", "ltr");
+            }
+
             document.querySelectorAll('[data-lang]').forEach(el => {
                 el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
             });
+
+            currentLang = lang;
+            updateCountdown(); // update timer units on language change
         }
-        setLanguage('en'); // Default language
+
+        let currentLang = 'en';
+        setLanguage(currentLang); // Default language
 
         // Countdown
         const targetDate = new Date("August 23, 2025 19:00:00").getTime();
+
         function updateCountdown() {
             const now = new Date().getTime();
             const distance = targetDate - now;
 
+            const timerEl = document.getElementById("timer");
             if (distance < 0) {
-                document.getElementById("timer").innerHTML = "💖 Today is the big day!";
+                const messages = {
+                    en: "💖 Today is the big day!",
+                    fr: "💖 C'est le grand jour !",
+                    ar: "💖 اليوم هو اليوم الكبير!",
+                };
+                timerEl.innerHTML = "⏰ " + (messages[currentLang] || messages.en);
                 return;
             }
 
@@ -140,9 +193,12 @@
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById("timer").innerHTML =
-                days + "d : " + hours + "h : " + minutes + "m : " + seconds + "s";
+            const units = langUnits[currentLang] || langUnits.en;
+
+            timerEl.innerHTML =
+                `⏰ ${days}${units.d} : ${hours}${units.h} : ${minutes}${units.m} : ${seconds}${units.s}`;
         }
+
         updateCountdown();
         setInterval(updateCountdown, 1000);
     </script>
