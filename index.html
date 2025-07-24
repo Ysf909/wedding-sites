@@ -125,13 +125,12 @@
       <span data-lang="ar">العد التنازلي لحفل زفافنا 💍</span>
     </h2>
     <div id="timer" style="font-size: 1.8rem; margin-top: 1rem;">
-      ⏰      
-     
+      ⏰ Loading...
     </div>
   </div>
 
   <footer>
-    <p> 2024 Youssef & Jana | Made with Love</p>
+    <p> 2025 Youssef & Jana | Made with Love</p>
     <p>
       <a href="https://www.google.com/maps?q=9R54+9MR+Villa+Chambour" target="_blank">
         <span data-lang="en">📍 View Venue At 7 P.M</span>
@@ -175,16 +174,17 @@
           fr: "💖 C'est le grand jour !",
           ar: "💖 اليوم هو اليوم الكبير!"
         };
-     
+        timerEl.innerHTML = "⏰ " + (messages[currentLang] || messages.en);
+        return;
       }
-       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
       timerEl.innerHTML =
         `⏰ ${days}${units.d} : ${hours}${units.h} : ${minutes}${units.m} : ${seconds}${units.s}`;
-
     }
 
     setLanguage('en');
